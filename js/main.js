@@ -31,6 +31,7 @@ const gameBoard = (() => {
 		return board[row_index][column_index];
 	};
 	const markBoard = (to_mark, row_index, column_index) => {
+		console.log(`marking ${to_mark} at ${row_index}, ${column_index}`);
 		if (
 			(to_mark === O_MARKER || to_mark === X_MARKER) &&
 			row_index < 3 &&
@@ -53,11 +54,16 @@ const gameBoard = (() => {
 	};
 	const checkWin = () => {
 		for (let i = 0; i < 3; i++) {
-			if (board[i].every((item) => item === board[i][0])) {
+			if (
+				board[i].every(
+					(item) => item === board[i][0] && item !== NOT_MARKED
+				)
+			) {
 				return [board[i][0], `row${i + 1}`];
 			} else if (
 				board[0][i] === board[1][i] &&
-				board[0][i] === board[2][i]
+				board[0][i] === board[2][i] &&
+				board[0][i] !== NOT_MARKED
 			) {
 				return [board[0][i], `column${i + 1}`];
 			}
@@ -85,12 +91,16 @@ const boardCells = document.querySelectorAll(".boardCell");
 
 boardCells.forEach((cell) => {
 	cell.addEventListener("click", (e) => {
-		const row_index = e.target.getAttribute("row_index");
-		const column_index = e.target.getAttribute("col_index");
+		const row_index = cell.getAttribute("row_index");
+		const column_index = cell.getAttribute("col_index");
 		const to_mark = player.symbol;
+		console.log(
+			`Sending ${to_mark} for mark at ${row_index}, ${column_index}`
+		);
 		gameBoard.markBoard(to_mark, row_index, column_index);
 		updateBoard();
 		let win_check = gameBoard.checkWin();
+		console.log(win_check);
 
 		const overlay = document.querySelector(".overlay");
 		const winTextBlock = document.querySelector(".winTextBlock");
@@ -99,9 +109,9 @@ boardCells.forEach((cell) => {
 		if (win_check[0] === O_MARKER || win_check[0] === X_MARKER) {
 			winTextBlock.style.display = "block";
 			overlay.style.display = "block";
-			winTitle.innerHTML = `${
-				player.playerName
-					? player.symbol === win_check[0]
+			winText.innerHTML = `${
+				player.symbol === win_check[0]
+					? player.playerName
 					: computer.playerName
 			} wins!`;
 			winTitle.innerHTML = "We have a winner!";

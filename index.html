@@ -1,13 +1,37 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Tic-Tac-Toe</title>
+    <link rel="stylesheet" href="./css/style.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded">
     <script src="./js/main.js" defer></script>
 </head>
+
 <body>
-    
+    <header>
+        <h1>Tic-Tac-Toe</h1>
+    </header>
+    <div class="gameBoard">
+        <div class="boardCell" id="0-0" row_index="0" col_index="0"></div>
+        <div class="boardCell" id="0-1" row_index="0" col_index="1"></div>
+        <div class="boardCell" id="0-2" row_index="0" col_index="2"></div>
+        <div class="boardCell" id="1-0" row_index="1" col_index="0"></div>
+        <div class="boardCell" id="1-1" row_index="1" col_index="1"></div>
+        <div class="boardCell" id="1-2" row_index="1" col_index="2"></div>
+        <div class="boardCell" id="2-0" row_index="2" col_index="0"></div>
+        <div class="boardCell" id="2-1" row_index="2" col_index="1"></div>
+        <div class="boardCell" id="2-2" row_index="2" col_index="2"></div>
+    </div>
+
+    <div class="overlay"></div>
+    <div class="winTextBlock">
+        <h1 class="winTitle"></h1>
+        <div class="winText"></div>
+    </div>
 </body>
+
 </html>

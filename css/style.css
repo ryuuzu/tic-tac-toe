@@ -1,0 +1,50 @@
+@import url("https://fonts.googleapis.com/css2?family=Aboreto&display=swap");
+body {
+	font-family: Aboreto, cursive;
+	color: white;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	background-color: black;
+	align-items: center;
+	overflow: hidden;
+	gap: 20px;
+	height: 100vh;
+}
+.gameBoard {
+	display: grid;
+	grid-template-columns: 200px 200px 200px;
+	grid-template-rows: 200px 200px 200px;
+	gap: 10px;
+	background-color: black;
+}
+
+.gameMarker {
+	font-size: 200px;
+	filter: invert(100%) sepia(7%) saturate(0%) hue-rotate(354deg)
+		brightness(104%) contrast(109%);
+	opacity: 50%;
+}
+
+.boardCell {
+	background-color: rgba(155, 153, 153, 0.5);
+}
+
+.winTextBlock {
+	display: none;
+	text-align: center;
+	position: absolute;
+	z-index: 2;
+	background-color: rgba(0, 0, 0, 0.7);
+	padding: 30px;
+	border-radius: 28px;
+}
+
+.overlay {
+	display: none;
+	height: 100%;
+	width: 100%;
+	z-index: 1;
+	position: absolute;
+	background-color: rgba(255, 255, 255, 0.5);
+}

@@ -48,3 +48,18 @@ body {
 	position: absolute;
 	background-color: rgba(255, 255, 255, 0.5);
 }
+
+.path {
+	stroke-dasharray: 2505.18;
+	stroke-dashoffset: 0;
+	animation: dash 1s linear;
+}
+
+@keyframes dash {
+	from {
+		stroke-dashoffset: 2505.18;
+	}
+	to {
+		stroke-dashoffset: 0;
+	}
+}
